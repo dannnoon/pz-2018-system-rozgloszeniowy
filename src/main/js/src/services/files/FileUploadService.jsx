@@ -36,6 +36,19 @@ class FileUploadService {
             }
         ).then(response => response.json());
     }
+
+    static deleteFile(id) {
+        const fetchUrl = `${FileUploadService.BASE_GET_URL}/${id}?projection=${this.BASE_PROJECTION}`
+
+        return fetch(
+            fetchUrl,
+            {
+                method: 'DELETE',
+                credentials: 'same-origin',
+                headers: FileUploadService.BASE_FETCH_HEADERS
+            }
+        );
+    }
 }
 
 export default FileUploadService;

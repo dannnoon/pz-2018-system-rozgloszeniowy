@@ -19,7 +19,10 @@ class FileList extends Component {
         super(props);
 
         this.state = {
-            files: []
+            files: [],
+            fileToDelete: null,
+            deleteModalToggle: null,
+            errorModalToggle: null
         }
     }
 
@@ -31,6 +34,13 @@ class FileList extends Component {
                 });
             })
             .catch(error => console.log(error))
+    }
+
+    removeFile() {
+        FileUploadService.deleteFile(file.id)
+            .then(response => {
+
+            });
     }
 
     componentDidMount() {

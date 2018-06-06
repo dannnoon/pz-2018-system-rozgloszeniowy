@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {MdEdit, MdHighlightRemove} from "react-icons/lib/md/index";
+import FileUploadService from "../../../services/files/FileUploadService";
 
 class FileRow extends Component {
+
+
 
     render() {
         const {file, index} = this.props;
