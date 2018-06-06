@@ -20,7 +20,6 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final AccessDeniedHandler accessDeniedHandler;
-
     private final Environment env;
 
     @Autowired
@@ -52,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/404", "/403", "/auth/logout", "/auth/login", "/auth/isLogged")
                 .permitAll()
-                .antMatchers("/api/**", "/getRoles", "/auth/**")
+                .antMatchers("/api/**", "/getRoles", "/auth/**", "/file/**")
                 .hasAnyAuthority("USER", "GLOBAL_ADMINISTRATOR", "GROUP_ADMINISTRATOR")
                 .antMatchers("/**")
                 .permitAll()

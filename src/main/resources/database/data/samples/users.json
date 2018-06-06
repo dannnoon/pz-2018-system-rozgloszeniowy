@@ -17,7 +17,15 @@
     "groups": [
       {
         "_class": "com.pz.broadcast.entities.UserGroup",
-        "name": "TESTOWA Grupa 2"
+        "name": "TESTOWA Grupa 1",
+        "files": [
+          {
+            "_class": "com.pz.broadcast.entities.File",
+            "name": "Testowy zepsuty plik",
+            "link": "#",
+            "fileHash": "hash####hash"
+          }
+        ]
       }
     ],
     "devices": [

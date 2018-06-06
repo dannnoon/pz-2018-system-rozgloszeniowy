@@ -30,4 +30,13 @@ public class Log {
         this.comment = comment;
     }
 
+    @Override
+    public String toString() {
+        return "Log{" +
+                "id=" + id +
+                ", action='" + action + '\'' +
+                ", datetime=" + datetime +
+                ", comment='" + comment + '\'' +
+                '}';
+    }
 }

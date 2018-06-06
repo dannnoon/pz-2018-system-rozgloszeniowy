@@ -46,6 +46,15 @@ class MainNavbar extends Component {
                                         Users
                                     </Link>
                                 </NavItem>
+
+                                <NavItem>
+                                    <Link
+                                        to="/fileTransfer"
+                                        className="nav-link"
+                                    >
+                                        Upload file
+                                    </Link>
+                                </NavItem>
                             </Nav>
                         </Collapse>
                     </Container>

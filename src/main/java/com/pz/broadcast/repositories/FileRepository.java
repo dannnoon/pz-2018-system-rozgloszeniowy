@@ -9,4 +9,5 @@ import java.util.Collection;
 public interface FileRepository extends CrudRepository<File, Long> {
     Collection<File> findAllByGroupsContains(Collection<UserGroup> group);
     File findById(long id);
+    File findByIdAndGroupsContains(long id, Collection<UserGroup> groups);
 }

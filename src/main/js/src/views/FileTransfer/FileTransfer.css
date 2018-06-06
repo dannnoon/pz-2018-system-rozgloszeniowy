@@ -1,0 +1,26 @@
+.file--header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.file--actions svg {
+    height: 2.6em;
+    width: 2.6em;
+}
+
+.file--drop-zone {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+    border-radius: 1em;
+    border: solid darkgrey;
+    padding: 5em;
+}
+
+.file--drop-zone-active {
+    border: dashed lightgray;
+}

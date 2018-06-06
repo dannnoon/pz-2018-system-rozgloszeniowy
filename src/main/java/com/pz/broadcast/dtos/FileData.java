@@ -1,5 +1,6 @@
 package com.pz.broadcast.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,6 @@ public class FileData {
     String name;
     String link;
     String fileHash;
+    @JsonIgnore
     List<UserGroupData> groups;
 }
