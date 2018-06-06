@@ -2,13 +2,15 @@ package com.pz.broadcast.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ReactController {
 
-    @GetMapping("/**{path:(?!.*.js|.*.css|.*.jpg).*$}**")
+    @GetMapping(value = {
+            "/{path:(?!.*.js|.*.css|.*.jpg).*$}",
+            "/users/**{path:(?!.*.js|.*.css|.*.jpg).*$}",
+            "/login/error"
+    })
     public String react() {
         return "index";
     }

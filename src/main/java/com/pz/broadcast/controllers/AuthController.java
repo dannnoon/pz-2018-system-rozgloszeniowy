@@ -3,8 +3,6 @@ package com.pz.broadcast.controllers;
 import com.pz.broadcast.dtos.RoleData;
 import com.pz.broadcast.dtos.UserData;
 import com.pz.broadcast.services.AuthService;
-import com.pz.broadcast.requests.LoginRequest;
-import com.pz.broadcast.response.LoginResponse;
 import com.pz.broadcast.utils.UserUtils;
 import com.pz.broadcast.validators.RegisterValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +32,6 @@ public class AuthController {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public LoginResponse login(@RequestBody LoginRequest credentials) {
-        LoginResponse response = new LoginResponse();
-//        response = dbClass.login(credentials);
-        return response;
-    }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@RequestBody UserData user) {
@@ -76,10 +68,8 @@ public class AuthController {
             return false;
 
         String name = auth.getName();
-        if (name != null && !name.equals("anonymousUser"))
-            return true;
+        return name != null && !name.equals("anonymousUser");
 
-        return false;
     }
 
     @RequestMapping(value = "/getRoles", method = RequestMethod.GET)

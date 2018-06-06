@@ -22,7 +22,8 @@ ReactDOM.render(
                 <Route exact path="/users" component={Users}/>
                 <Route exact path="/users/add" component={AddEditUser}/>
                 <Route path="/users/:id" component={AddEditUser}/>
-                <Route path="/login" component={Login}/>
+                <Route exact path="/login" component={Login}/>
+                <Route path="/login/:error" component={Login}/>
                 <Route path="/register" component={Register}/>
             </Switch>
         </BrowserRouter>
