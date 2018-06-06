@@ -27,4 +27,12 @@ public class UserGroup {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "UserGroup{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

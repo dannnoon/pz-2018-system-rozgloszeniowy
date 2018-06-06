@@ -27,4 +27,13 @@ public class File {
         this.fileHash = fileHash;
     }
 
+    @Override
+    public String toString() {
+        return "File{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", link='" + link + '\'' +
+                ", fileHash='" + fileHash + '\'' +
+                '}';
+    }
 }

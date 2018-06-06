@@ -19,11 +19,14 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private AccessDeniedHandler accessDeniedHandler;
+    private final AccessDeniedHandler accessDeniedHandler;
+    private final Environment env;
 
     @Autowired
-    Environment env;
+    public SecurityConfig(AccessDeniedHandler accessDeniedHandler, Environment env) {
+        this.accessDeniedHandler = accessDeniedHandler;
+        this.env = env;
+    }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -44,19 +47,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                     .disable()
                 .authorizeRequests()
-                    .antMatchers("/js/**").permitAll()
-                    .antMatchers("/404", "/403", "/logout", "/isLogged").permitAll()
-                    .antMatchers("/api/**","/getRoles",  "/file/**").hasAnyAuthority("USER","GLOBAL_ADMINISTRATOR", "GROUP_ADMINISTRATOR")
-                    .antMatchers("/**").permitAll()
+                .antMatchers("/js/**")
+                .permitAll()
+                .antMatchers("/404", "/403", "/auth/logout", "/auth/login", "/auth/isLogged")
+                .permitAll()
+                .antMatchers("/api/**", "/getRoles", "/auth/**", "/file/**")
+                .hasAnyAuthority("USER", "GLOBAL_ADMINISTRATOR", "GROUP_ADMINISTRATOR")
+                .antMatchers("/**")
+                .permitAll()
                     .anyRequest()
                         .denyAll()
                     .and()
                 .formLogin()
-                    //.loginPage("/login") // call our view replace /login with whatever view name for login page
+                .loginPage("/login") // call our view replace /login with whatever view name for login page
+                .loginProcessingUrl("/auth/login")
                     .usernameParameter("email")
                     .passwordParameter("password")
-                    .successForwardUrl("/")
-                    .failureForwardUrl("/404")
+                .defaultSuccessUrl("/", true)
+                .failureUrl("/login/error")
                     .permitAll()
                     .and()
                 .logout()

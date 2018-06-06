@@ -27,4 +27,13 @@ public class Device {
         this.IPAddress = IPAddress;
     }
 
+    @Override
+    public String toString() {
+        return "Device{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pushToken='" + pushToken + '\'' +
+                ", IPAddress='" + IPAddress + '\'' +
+                '}';
+    }
 }
