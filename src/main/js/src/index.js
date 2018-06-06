@@ -12,6 +12,7 @@ import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
 import Users from "./views/Users/Users";
 import AddEditUser from "./views/Users/components/AddEditUser/AddEditUser";
+import FileEdit from "./views/FileEdit/FileEdit";
 
 const store = createStore(reducers);
 
@@ -23,6 +24,7 @@ ReactDOM.render(
                 <Route exact path="/fileTransfer" component={FileTransfer}/>
                 <Route exact path="/users" component={Users}/>
                 <Route exact path="/users/add" component={AddEditUser}/>
+                <Route exact path="/files" component={FileEdit}/>
                 <Route path="/users/:id" component={AddEditUser}/>
                 <Route exact path="/login" component={Login}/>
                 <Route path="/login/:error" component={Login}/>

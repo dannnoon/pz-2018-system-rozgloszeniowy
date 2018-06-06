@@ -49,6 +49,15 @@ class MainNavbar extends Component {
 
                                 <NavItem>
                                     <Link
+                                        to="/files"
+                                        className="nav-link"
+                                    >
+                                        Files
+                                    </Link>
+                                </NavItem>
+
+                                <NavItem>
+                                    <Link
                                         to="/fileTransfer"
                                         className="nav-link"
                                     >

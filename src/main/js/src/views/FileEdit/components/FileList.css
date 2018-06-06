@@ -1,0 +1,41 @@
+.file-table--pagination-wrapper {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 15px;
+}
+
+.file-table.table th {
+    border-top: 0;
+}
+
+.file-table .file-table--actions-cell {
+    text-align: right;
+}
+
+.file-table .file-table--actions-cell svg {
+    width: 1.6em;
+    height: 1.6em;
+    margin: 0 2px;
+}
+
+.file-table .file-table--actions-cell svg:hover {
+    cursor: pointer;
+    animation: file-table--actions 1s infinite;
+}
+
+.file-table--remove-icon {
+    color: #ff0000;
+}
+
+@keyframes file-table--actions {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(.9, .9);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
